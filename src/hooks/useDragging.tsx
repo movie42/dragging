@@ -8,7 +8,7 @@ export interface Offset {
   y: null | number;
 }
 
-export interface useDraggingReturn {
+export interface UseDraggingReturn {
   boxOffset: Offset;
   handleMouseCurrentPosition: MouseEvetFunction;
   handleDragableItemCurrentPosition: MouseEvetFunction;
@@ -16,7 +16,7 @@ export interface useDraggingReturn {
   handleItemDraggingEnd: CommonFunction;
 }
 
-const useDragging = (): useDraggingReturn => {
+const useDragging = (): UseDraggingReturn => {
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState<Offset>({ x: null, y: null });
   const [boxOffset, setBoxOffset] = useState<Offset>({ x: null, y: null });

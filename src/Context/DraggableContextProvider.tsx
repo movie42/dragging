@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useContext } from "react";
-import useDragging, { useDraggingReturn } from "../hooks/useDragging";
+import useDragging, { UseDraggingReturn } from "../hooks/useDragging";
 
-const DraggableContext = createContext<useDraggingReturn>(null!);
+const DraggableContext = createContext<UseDraggingReturn>(null!);
 
 interface DraggableContextProps {
   children: ReactNode;
