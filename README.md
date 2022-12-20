@@ -2,8 +2,8 @@
 
 ## 프로젝트 데모
 
-데모를 실행해볼 수 있습니다.
-[바로가기](https://dragging-5isn0xi7c-wanted-4th.vercel.app/)
+데모를 실행해볼 수 있습니다.  
+[바로가기](https://dragging-5isn0xi7c-wanted-4th.vercel.app/)  
 
 ## 프로젝트 세팅 및 실행
 
@@ -51,12 +51,12 @@ styled-componets
 
 ### useDragging 훅
 
-[useDraggig.tsx](./src/hooks/useDragging.tsx)
+[useDraggig.tsx](./src/hooks/useDragging.tsx)  
 어플리케이션에서 함수의 기능을 재사용하는 것은 반복을 줄일 수 있기 때문에 매우 중요합니다. 드래그 할때 필요한 상태와 함수를 커스텀 훅으로 생성하여 해당 기능을 사용하고자 하는 컴포넌트에서 자유롭게 사용할 수 있도록 구현하였습니다.
 
 ### 컨텍스트를 통해 Props 드릴 없애기
 
-[useDraggig.tsx](./src/Context/DraggableContextProvider.tsx)
+[useDraggig.tsx](./src/Context/DraggableContextProvider.tsx)  
 DraggableContextProvider는 Draggable 컴포넌트의 Props 드릴을 없애고 useDragging의 상태와 메소드를 공유할 수 있습니다. ContextAPI는 맥락을 공유하고 있는 컴포넌트의 상태가 변경되면 하위 컴포넌트들이 전부 다시 랜더링 된다는 단점이 있지만 제가 작성한 코드와 같이 좁은 맥락에서 사용된다면 의존성을 주입하여 상태나 함수가 꼭 필요한 부분에서 호출 할 수 있다는 장점이 있습니다.
 
 ### 타입 반복 줄이기, Return 타입으로 함수 리턴값 명확하게 하기
