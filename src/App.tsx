@@ -1,13 +1,15 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 import { Box, Draggable } from "./Components";
+import DraggableContextProvider from "./Context/DraggableContextProvider";
 
 function App() {
   return (
     <Container>
-      <Draggable>
-        <Box />
-      </Draggable>
+      <DraggableContextProvider>
+        <Draggable>
+          <Box />
+        </Draggable>
+      </DraggableContextProvider>
     </Container>
   );
 }

@@ -3,24 +3,24 @@ import React, { useState } from "react";
 type MouseEvetFunction = (e: React.MouseEvent<HTMLDivElement>) => void;
 type CommonFunction = () => void;
 
-interface Offset {
+export interface Offset {
   x: null | number;
   y: null | number;
 }
 
 export interface useDraggingReturn {
   boxOffset: Offset;
-  onMouseMove: MouseEvetFunction;
-  onBoxMove: MouseEvetFunction;
-  onMouseDown: CommonFunction;
-  onMouseUp: CommonFunction;
+  handleMouseCurrentPosition: MouseEvetFunction;
+  handleDragableItemCurrentPosition: MouseEvetFunction;
+  handleItemDraggingStart: CommonFunction;
+  handleItemDraggingEnd: CommonFunction;
 }
 
 const useDragging = (): useDraggingReturn => {
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState<Offset>({ x: null, y: null });
   const [boxOffset, setBoxOffset] = useState<Offset>({ x: null, y: null });
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseCurrentPosition = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!isDragging) {
       return;
     }
@@ -29,7 +29,9 @@ const useDragging = (): useDraggingReturn => {
     let offsetY = e.clientY - target.getBoundingClientRect().top;
     setOffset({ x: offsetX, y: offsetY });
   };
-  const onBoxMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleDragableItemCurrentPosition = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
     if (!isDragging) {
       return;
     }
@@ -38,23 +40,22 @@ const useDragging = (): useDraggingReturn => {
       let offsetY = offset.y - e.currentTarget.clientHeight / 2;
       setBoxOffset({ x: offsetX, y: offsetY });
     }
-    setBoxOffset((pre) => ({ ...pre, x: 0 }));
   };
 
-  const onMouseDown = () => {
+  const handleItemDraggingStart = () => {
     setIsDragging(true);
   };
 
-  const onMouseUp = () => {
+  const handleItemDraggingEnd = () => {
     setIsDragging(false);
   };
 
   return {
     boxOffset,
-    onMouseMove,
-    onBoxMove,
-    onMouseDown,
-    onMouseUp
+    handleMouseCurrentPosition,
+    handleDragableItemCurrentPosition,
+    handleItemDraggingStart,
+    handleItemDraggingEnd
   };
 };
 
